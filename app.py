@@ -1,8 +1,8 @@
 from flask import Flask, render_template, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy import create_engine, text
-from flask_migrate import Migrate # ???
-from flask_cors import CORS # for routes?
+from sqlalchemy import create_engine, text
+from flask_migrate import Migrate 
+from flask_cors import CORS 
 import os
 
 print("hello from app.py")
@@ -30,19 +30,19 @@ if __name__ == "__main__":
 
 
 # Connect app to local db in heroku
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
-# ac = app.config['SQLALCHEMY_DATABASE_URI']
-# print(ac)
-# db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+ac = app.config['SQLALCHEMY_DATABASE_URI']
+print(ac)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 # # run db setup and seed
-# engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 
-# with engine.connect() as con:
-#     with open("./migrations/1_setup.sql") as file:
-#         query = text(file.read())
-#         con.execute(query)
-#     with open("./migrations/2_seed.sql") as file:
-#         query = text(file.read())
-#         con.execute(query)
+with engine.connect() as con:
+    with open("./migrations/1_setup.sql") as file:
+        query = text(file.read())
+        con.execute(query)
+    with open("./migrations/2_seed.sql") as file:
+        query = text(file.read())
+        con.execute(query)
