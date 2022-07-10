@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, render_template, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine, text
+# from sqlalchemy import create_engine, text
 from flask_migrate import Migrate 
 from flask_cors import CORS 
 import os
@@ -34,7 +34,6 @@ if __name__ == "__main__":
 
 
 # Setup Model for db
-# ('name','rarity','class-specific','description','flavor-text','conditions-for-spawning')
 class RelicModel(db.Model):
     __tablename__ = 'cars'
 
