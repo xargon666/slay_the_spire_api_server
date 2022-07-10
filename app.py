@@ -10,6 +10,25 @@ print("hello from app.py")
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico')
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    print(path)
+    return render_template("index.html")
+
+if __name__ == "__main__":
+
+    app.run(debug=True)
+
+# @app.route('/product', methods=['GET'])
+# def get_relics():
+#     all_relics = "" # db.query.all()
+
+
 # Connect app to local db in heroku
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 # ac = app.config['SQLALCHEMY_DATABASE_URI']
@@ -27,23 +46,3 @@ CORS(app)
 #     with open("./migrations/2_seed.sql") as file:
 #         query = text(file.read())
 #         con.execute(query)
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def catch_all(path):
-#     print(path)
-#     return render_template("index.html")
-
-
-@app.route("/favicon.ico")
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico')
-
-@app.route('/product', methods=['GET'])
-def get_relics():
-    all_relics = "" # db.query.all()
-
-
-if __name__ == "__main__":
-
-    app.run(debug=True)
