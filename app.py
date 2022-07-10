@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
 # Setup Model for db
 class RelicModel(db.Model):
-    __tablename__ = 'cars'
+    __tablename__ = 'relics'
 
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String())
