@@ -12,8 +12,11 @@ flask-migrate = "*"
 sqlalchemy = "*"
 gunicorn = "*"
 psycopg2 = "*"
+pytest = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.10"
