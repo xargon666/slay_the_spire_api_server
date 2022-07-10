@@ -11,8 +11,8 @@ A Python Flask API deployed to Heroku with a Postgres DB using an MVC pattern
 - Absolutely zero tests or frontend
 
 ## Updates to Come
-- Add tables for more game data i.e. cards
+- Add tables for more game data *e.g. cards*
 - Add UI to request data
 - Add User Login
 - Add Deck Builder for Users
-- Show stats for deck e.g. draw probability
+- Show stats for deck *e.g. draw probability*
