@@ -11,6 +11,7 @@ flask-cors = "*"
 flask-migrate = "*"
 sqlalchemy = "*"
 gunicorn = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
