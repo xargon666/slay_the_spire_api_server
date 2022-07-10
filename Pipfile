@@ -9,6 +9,7 @@ waitress = "*"
 flask-sqlalchemy = "*"
 flask-cors = "*"
 flask-migrate = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 
