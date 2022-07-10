@@ -1,4 +1,4 @@
-INSERT INTO relics ('name','rarity','class-specific','description','flavor-text','conditions-for-spawning')
+INSERT INTO relics (name,rarity,class_specific,description,flavor_text,conditions_for_spawning)
 VALUES
 ('Burning Blood','Starter','Ironclad','At the end of combat, heal 6 HP.','Your body''s own blood burns with an undying rage.',''),
 ('Cracked Core','Starter','Defect','At the start of each combat, Channel 1 Lightning.','The mysterious life force which powers the Automatons within the Spire. It appears to be cracked.',''),
@@ -177,4 +177,4 @@ VALUES
 ('Red Mask','Special','','At the start of each combat, apply 1 Weak to ALL enemies.','This very stylish looking mask belongs to the leader of the Red Mask Bandits. Technically that makes you the leader now?',''),
 ('Spirit Poop','Special','','It''s unpleasant.','The charred remains of your offering to the spirits.',''),
 ('Ssserpent Head','Special','','Whenever you enter a ? room, gain 50 Gold.','The most fulfilling of lives is that in which you can buy anything!',''),
-('Warped Tongs','Special','','At the start of your turn, Upgrade a random card in your hand for the rest of combat.','The cursed tongs emit a strong desire to return to where they were stolen from.','')
+('Warped Tongs','Special','','At the start of your turn, Upgrade a random card in your hand for the rest of combat.','The cursed tongs emit a strong desire to return to where they were stolen from.','');

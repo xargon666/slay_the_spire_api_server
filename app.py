@@ -8,6 +8,11 @@ import os
 print("hello from app.py")
 
 app = Flask(__name__)
+
+# Connect app to local db in heroku
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 CORS(app)
 
 @app.route("/favicon.ico")
@@ -20,14 +25,13 @@ def catch_all(path):
     print(path)
     return render_template("index.html")
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     app.run(debug=True)
 
-# Connect app to local db in heroku
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+# postgres://jremcexhoaamgj:781f3245c24665d1e930c6a310d6dd87e934937aa8f5942f120a1aa41114ec52@ec2-3-248-121-12.eu-west-1.compute.amazonaws.com:5432/df67jta2kdc8ba
+
+
 
 # Setup Model for db
 # ('name','rarity','class-specific','description','flavor-text','conditions-for-spawning')
