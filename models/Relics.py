@@ -1,6 +1,4 @@
 from app import db
-
-# Setup Model for db
 class Relics(db.Model):
     __tablename__ = 'relics'
 
