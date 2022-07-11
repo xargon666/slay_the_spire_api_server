@@ -43,7 +43,9 @@ Currently deployed [here](https://slay-the-spire-api-server.herokuapp.com/) on h
 ## Bugs
 - Radio buttons returns "on" instead of the value
 - Form needs 'required' for name
+
 ## Updates to Come
+- TESTING
 - Add tables for more game data *e.g. cards*
 - UI needs a button to create a table for all relics
 - UI needs button for get relic by id / search for relic
