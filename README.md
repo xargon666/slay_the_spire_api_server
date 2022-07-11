@@ -29,11 +29,11 @@ Currently deployed [here](https://slay-the-spire-api-server.herokuapp.com/) on h
 
 ### Endpoints
 - /
-  -home
+  - home
 - /relics
   - entire database
 - /relics/ **int**
-  -a single entry
+  - a single entry
 ### Features
 - Route redirect to index.html
 - CRUD
