@@ -1,11 +1,16 @@
 from app import app, db, os
 from flask import request, render_template, send_from_directory, jsonify
 from controllers import index, show, create, update, destroy
-
+import os
 # Routes ******************************************************************************************
-@app.route("/favicon.ico")
+# Added route attempting to fix static favicon.ico bug
+@app.route('/favicon.ico')
+@app.route('/img/favicon.ico')
+@app.route('/static/favicon.ico')
+@app.route('/static/img/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, "static"), "favicon.ico")
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route("/", defaults={"path": ""})
@@ -29,6 +34,7 @@ def relics_handler():
     fns = {"GET": index, "POST": create}
     if request.method == 'POST':
         print("request.form",request.form)
+        # dump(request.form)
         obj = {
             "name": request.form["name"],
             "rarity": request.form["rarity"],
