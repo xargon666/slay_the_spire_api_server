@@ -1,7 +1,7 @@
-from app import app, db, os
+from app import app, db
 from flask import request, render_template, send_from_directory, jsonify
 from controllers import index, show, create, update, destroy
-import os
+from models.Relics import Relics
 
 # Routes ******************************************************************************************
 
@@ -34,7 +34,10 @@ def new_handler():
 # Load Edit Relic Form - WIP
 @app.route("/edit")
 def edit_handler():
-    return render_template("edit.html")
+    relics = db.session.query(Relics).all()
+    print(type(relics))
+    print(type(relics[0]))
+    return render_template("edit.html", relics=relics, Relics=Relics)
 
 # Routes for GET/POST ALL
 @app.route("/relics", methods=["GET", "POST"])

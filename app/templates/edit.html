@@ -1,24 +1,146 @@
 {% extends 'base.html' %}
     
 {% block content %}
-<h1>Hello from Edit</h1>
+
 <div class="container">
-<form>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary me-1 col-2">Submit</button>
-    <a href="{{ url_for('catch_all') }}" class="btn btn-secondary me-1 col-2">Back</a>
-  </form>
-</div class="container">
+  <h1>Hello from Edit</h1>
+  
+  <label for="relic-select">Choose a Relic</label>
+  <select name="selection" class="mb-3">
+    <option value="">Please Choose a Relic</option>
+  {% set selected_relic = namespace(id="") %}
+  {% for relic in relics %}
+    <option value="{{ relic.name }}">{{relic.id}}. {{ relic.name }}</option>
+  {# How do I test option value? Maybe can't be done with Jinja alone #}
+    {% if relic %}
+        {% set selected_relic.id = relic.id %}
+    {% endif %}
+  {% endfor %}
+</select>
+{# This seems to populate with the largest value, so I guess it is calling line 16 every time #}
+<p>Output ID: {{selected_relic.id}}</p>
+      <form action="{{url_for('relics_handler')}}" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Relic Name</label>
+          <input type="text" class="form-control" id="name" name="name" aria-describedby="name_input" value="">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="description" name="description" aria-describedby="description_input">
+        </div>
+        <div class="mb-3">
+          <label for="flavor_text" class="form-label">Flavor Text</label>
+          <input type="text" class="form-control" id="flavor_text" name="flavor_text" aria-describedby="flavor_text_input">
+        </div>
+        <div class="mb-3">
+          <label for="conditions_for_spawning" class="form-label">Conditions for Spawning</label>
+          <input type="text" class="form-control" id="conditions_for_spawning" name="conditions_for_spawning" aria-describedby="conditions_for_spawning_input">
+        </div>
+  
+        <div class="container mb-3">
+          <div class="row mb-3 ">
+            <!-- Class Specific Relic -->
+            <div class="col-4 border p-3 mx-1">
+              <fieldset class="btn-group-vertical" role="group" aria-label="Radio button group"  >
+                <label id="characterHelp" class="mb-1">Character Specific Relic</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="class_specific" id="flexRadioNone" value="" checked>
+                  <label class="form-check-label" for="flexRadioNone">
+                  Non-specific
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="class_specific" value="Ironclad" id="flexRadioIronclad" >
+                <label class="form-check-label" for="flexRadioIronclad">
+                  Ironclad
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="class_specific" id="flexRadioSilent" value="Silent">
+                <label class="form-check-label" for="flexRadioSilent">
+                  Silent
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="class_specific" id="flexRadioDefect" value="Defect">
+                <label class="form-check-label" for="flexRadioDefect">
+                  Defect
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="class_specific" id="flexRadioWatcher" value="Watcher">
+                <label class="form-check-label" for="flexRadioWatcher">
+                  Watcher
+                </label>
+              </div>
+             </fieldset >
+            </div class="col-4">
+  
+            <!-- Relic Rarity -->
+            <div class="col-4 border p-3 mx-1">
+              <fieldset  class="btn-group-vertical" role="group" aria-label="Rarity Radio button group" >
+              <label id="characterHelp" class="mb-1">Rarity</label>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rarity" id="flexRadioCommon" value="Common" checked>
+                <label class="form-check-label" for="flexRadioCommon">
+                  Common
+                </label>
+              </div>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rarity" id="flexRadioUncommon" value="Uncommon" >
+                <label class="form-check-label" for="flexRadioUncommon">
+                  Uncommon
+                </label>
+              </div>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rarity" id="flexRadioRare" value="Rare">
+                <label class="form-check-label" for="flexRadioRare">
+                  Rare
+                </label>
+              </div>
+             
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rarity" id="flexRadioSpecial" value="Special">
+                <label class="form-check-label" for="flexRadioSpecial">
+                  Special
+                </label>
+              </div>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rarity" id="flexRadioStarter" value="Starter">
+                <label class="form-check-label" for="flexRadioStarter">
+                  Starter
+                </label>
+              </div>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rarity" id="flexRadioShop" value="Shop" >
+                <label class="form-check-label" for="flexRadioShop">
+                  Shop
+                </label>
+              </div>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="rarity" id="flexRadioBoss" value="Boss">
+                <label class="form-check-label" for="flexRadioBoss">
+                  Boss
+                </label>
+              </div>
+            </fieldset >
+            </div class="col-4">
+  
+          </div class="row">
+  
+        </div class="container">
+  
+  
+        <button type="submit" class="btn btn-primary me-1 col-2">Submit</button>
+        <a href="{{ url_for('catch_all') }}" class="btn btn-secondary me-1 col-2">Back</a>
+  
+    </form>
+
+  </div class="container">
 {% endblock %}

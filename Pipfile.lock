@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "375572dcb685bb7d61a1bd95da747f943882a67498d256a27743fdca12800eaf"
+            "sha256": "06e3c49386be135889d64c65ad93015fc4a22fed6085d453d2b2a990fd399565"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -288,6 +288,22 @@
             ],
             "index": "pypi",
             "version": "==7.1.2"
+        },
+        "pytest-flask-sqlalchemy": {
+            "hashes": [
+                "sha256:b9f272d5c4092fcbe4a6284e402a37cad84f5b9be3c0bbe1a11927f24c99ff83",
+                "sha256:db71a57b90435e5d854b21c37a2584056d6fc3ddb28c09d8d0a2546bd6e390ff"
+            ],
+            "index": "pypi",
+            "version": "==1.1.0"
+        },
+        "pytest-mock": {
+            "hashes": [
+                "sha256:77f03f4554392558700295e05aed0b1096a20d4a60a4f3ddcde58b0c31c8fca2",
+                "sha256:8a9e226d6c0ef09fcf20c94eb3405c388af438a90f3e39687f84166da82d5948"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==3.8.2"
         },
         "setuptools": {
             "hashes": [

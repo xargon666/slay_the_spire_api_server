@@ -19,4 +19,4 @@ class Relics(db.Model):
         self.conditions_for_spawning = conditions_for_spawning
     
     def __repr__(self):
-        return f"<Relic {self.name}"
+        return f"Relic {self.name}"

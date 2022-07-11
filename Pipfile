@@ -13,6 +13,7 @@ sqlalchemy = "*"
 gunicorn = "*"
 psycopg2 = "*"
 pytest = "*"
+pytest-flask-sqlalchemy = "*"
 
 [dev-packages]
 pytest = "*"
