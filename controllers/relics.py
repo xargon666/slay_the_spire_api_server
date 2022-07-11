@@ -71,15 +71,8 @@ def destroy(req,id):
     db.session.commit()
     return {"message":f"{relic.id} has now been deleted"},204
 
-
 # def new(req):
 #     return something, 200
 
 # def edit(req):
 #     return something, 200
-
-
-"""
-
-            return "You have made an unsupported request"
-"""
