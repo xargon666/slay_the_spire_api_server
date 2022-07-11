@@ -25,6 +25,9 @@ python_version = "3.10"
 [scripts]
 dev = "bash -c \"export FLASK_DEBUG=1 && export FLASK_ENV='development' && flask run\" " 
 start = "waitress-serve app:app"
+test = "pytest ."
+coverage = "pytest --cov-report term-missing --cov=."
+coverage-html = "pytest --cov-report html --cov=."
 
 [pipenv]
 allow_prereleases = true
