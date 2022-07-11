@@ -16,3 +16,12 @@ A Python Flask API deployed to Heroku with a Postgres DB using an MVC pattern
 - Add User Login
 - Add Deck Builder for Users
 - Show stats for deck *e.g. draw probability*
+
+### endpoints
+- /
+  -home
+- /relics
+  - entire database
+- /relics/ **int**
+  -a single entry
+
